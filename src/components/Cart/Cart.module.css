@@ -1,0 +1,154 @@
+.cart {
+  width: 80%;
+  margin: 0 auto;
+}
+@media (max-width: 645px) {
+  .cart {
+    width: 100%;
+  }
+  .main img {
+    display: none;
+  }
+}
+
+.cart>*:not(:last-child) {
+  margin-bottom: 60px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.top > * {
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 32px;
+}
+.clear {
+  display: flex;
+  text-align: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.clear svg {
+  width: 18px;
+  height: 18px;
+  fill: #b6b6b6;
+}
+.clear span {
+  color: #b6b6b6;
+  font-size: 18px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid #f6f6f6;
+  padding-top: 30px;
+}
+
+
+.item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  width: 45%;
+}
+
+.main img {
+  width: 20%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.count {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 13%;
+  
+}
+@media (max-width: 950px) {
+  .count {
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
+    width: min-content;
+  }
+}
+
+.circle {
+  cursor: pointer;
+  text-align: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle svg {
+  width: 12px;
+  height: 12px;
+}
+
+.circle-count {
+  border: 2px solid #b59571;
+}
+
+.circle-count svg {
+  fill: #b59571;
+}
+
+.circle-remove {
+  border: 2px solid #b6b6b6;
+}
+
+.circle-remove svg {
+  fill: #b6b6b6;
+}
+
+.bottom>* {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details {
+  margin-bottom: 20px;
+}
+.buttons {
+  flex-wrap: wrap-reverse;
+}
+.buttons > * {
+  margin-bottom: 10px;
+}
+.buttons svg {
+  width: 8px;
+  height: 8px;
+  fill: #ddd;
+  margin-right: 5px;
+}
+.empty {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}

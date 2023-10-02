@@ -1,0 +1,30 @@
+.root {
+  display: flex;
+  justify-content: center;
+}
+
+:global(.selected a) {
+  background-color: var(--accent-color);
+  color: #fff !important;
+}
+
+.root li {
+  display: inline-block;
+}
+
+.root li a {
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  margin-right: 10px;
+  line-height: 33px;
+  cursor: pointer;
+  display: inline-block;
+  color: var(--accent-color);
+}
+.root li a:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}

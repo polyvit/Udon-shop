@@ -1,23 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import Header from "./components/Header/Header";
+import RoutesMap from "./components/Routes/RoutesMap";
+import Sidebar from "./components/Sidebar/Sidebar";
+import UserModalForm from "./components/User/UserModalForm";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
+  const notify = () =>
+    toast("Зарегистрируйтесь и получите скидку 10% на всё меню");
+
+  useEffect(() => {
+    const id = setTimeout(() => notify(), 5000);
+    return () => clearTimeout(id);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Sidebar />
+      <UserModalForm />
+      <div className="main">
+        <div className="main-container">
+          <Header />
+          <RoutesMap />
+        </div>
+      </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+        theme="dark"
+      />
     </div>
   );
 }

@@ -1,0 +1,100 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filters > * {
+  margin-bottom: 10px;
+}
+
+.categories ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.link {
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.categories ul li:hover {
+  border-color: var(--accent-color);
+}
+
+.active {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.3;
+  position: absolute;
+  left: 14px;
+  top: 12px;
+}
+.input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px 15px;
+  width: 300px;
+  border-radius: 10px;
+  font-size: 16px;
+  padding-left: 42px;
+}
+.input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.clearIcon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.3;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+.clearIcon:hover {
+  opacity: 0.8;
+}
+
+.label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.label span {
+  color: var(--accent-color);
+  border-bottom: 1px dashed var(--accent-color);
+  cursor: pointer;
+}
+
+.popup {
+  position: absolute;
+  right: 100px;
+  margin-top: 15px;
+  background: var(--white-color);
+  -webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px;
+}
+
+.popup li {
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.popup li:hover {
+  background: #f9f9f9;
+  font-weight: bold;
+  color: var(--accent-color);
+}

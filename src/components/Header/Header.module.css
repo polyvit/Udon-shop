@@ -1,0 +1,63 @@
+.panel {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  align-items: center;
+  position: relative;
+}
+.panel p {
+  cursor: pointer;
+}
+.avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 410px) {
+  .avatar {
+    border: 0;
+  }
+  .panel {
+    gap: 10px;
+  }
+}
+
+.avatar img {
+  height: 100%;
+  border-radius: 50%;
+}
+.person {
+  width: 26px;
+  height: 26px;
+}
+.cart-button {
+  display: flex;
+  background-color: var(--accent-color);
+  border-radius: 30px;
+  min-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  align-items: center;
+  line-height: 23px;
+  padding: 12px 25px;
+}
+
+.cart-button span {
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+}
+
+.middle {
+  width: 1px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.25);
+  margin-left: 14px;
+  margin-right: 14px;
+}

@@ -1,0 +1,37 @@
+.sidebar {
+  background-color: #333333;
+  min-width: 5%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding-top: 30px;
+  position: relative;
+}
+@media (max-width: 460px) {
+  .sidebar {
+    min-width: 17%;
+  }
+}
+
+.sidebar a {
+  width: 80%;
+}
+
+.logo {
+  width: 85%;
+}
+
+.icons {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.icons img {
+  width: 80%;
+}
