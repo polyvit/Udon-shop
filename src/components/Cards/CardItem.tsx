@@ -6,7 +6,14 @@ import useAuth from '../User/use-auth';
 
 const types = ["мисо", "рыбный"];
 
-const CardItem = ({id, imageUrl, name, price}) => {
+type CardItemProps = {
+  id: string;
+  imageUrl: string;
+  name: string;
+  price: number;
+}
+
+const CardItem: React.FC<CardItemProps> = ({id, imageUrl, name, price}) => {
   const {isAuth} = useAuth();
   const [activeType, setActiveType] = useState(0)
   return (

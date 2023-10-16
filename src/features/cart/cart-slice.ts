@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { calcTotalPrice } from "../utils/common";
+import { calcTotalPrice } from "../../utils/common";
+import { CartSliceState } from "./types";
 
-const initialState = {
+
+const initialState: CartSliceState = {
   items: [],
   totalPrice: 0,
 };
@@ -21,9 +23,9 @@ const cartSlice = createSlice({
     },
     minusItem(state, { payload }) {
       const existedItem = state.items.find((item) => item.id === payload.id);
-      if (existedItem.count == 1) {
+      if (existedItem && existedItem.count == 1) {
         state.items = state.items.filter((item) => item.id !== payload.id);
-      } else {
+      } else if (existedItem) {
         existedItem.count--;
       }
       state.totalPrice = calcTotalPrice(state.items);

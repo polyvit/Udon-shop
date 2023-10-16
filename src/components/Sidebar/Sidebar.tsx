@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
         <Link to={'/'}>
-          <img src={LOGO} alt="Logo" class={styles.logo}/>
+          <img src={LOGO} alt="Logo" className={styles.logo}/>
         </Link>
         <div className={styles.icons}>
           <img src={TG} alt="Telegram" />

@@ -6,12 +6,13 @@ import { sumItems } from '../../utils/common';
 import styles from './Cart.module.css';
 import CartItem from './CartItem';
 import EmptyCart from './EmptyCart';
-import {clearCart, updateCart} from '../../features/cart-slice';
+import {clearCart, updateCart} from '../../features/cart/cart-slice';
 import useAuth from '../User/use-auth';
 import { toast } from "react-toastify";
+import { RootState } from '../../features/store';
 
 const Cart = () => {
-  const {items, totalPrice} = useSelector(state => state.cart);
+  const {items, totalPrice} = useSelector((state: RootState) => state.cart);
   const {isAuth} = useAuth();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ const Cart = () => {
                 <span>Сумма заказа: <b>{totalPrice}₽</b></span>
               </div>
               <div className={styles.buttons}>
-                <Link to={"/"} className="button-link" >Вернуться назад</Link>
+                <Link to={"/"} className="button-link" >Вернуться в магазин</Link>
                 <button className="button" onClick={handleClick}>Оплатить</button>
               </div>
             </div>

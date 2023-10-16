@@ -4,13 +4,14 @@ import {Link} from 'react-router-dom';
 
 import styles from './Header.module.css';
 import { sumItems } from '../../utils/common';
-import { toggleForm } from '../../features/user-slice';
+import { toggleForm } from '../../features/authorization/user-slice';
 import useAuth from '../User/use-auth';
 import { ROUTES } from '../../utils/routes';
+import { RootState } from '../../features/store';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const {items, totalPrice} = useSelector(state => state.cart);
+  const {items, totalPrice} = useSelector((state: RootState) => state.cart);
   const {isAuth, displayName} = useAuth();
 
   return (

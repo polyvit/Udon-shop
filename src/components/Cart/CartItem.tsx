@@ -2,9 +2,14 @@ import React from 'react';
 
 import styles from './Cart.module.css';
 import { useDispatch } from 'react-redux';
-import { addItem, minusItem, removeItem } from '../../features/cart-slice';
+import { addItem, minusItem, removeItem } from '../../features/cart/cart-slice';
+import { CartOneItem } from '../../features/cart/types';
 
-const CartItem = ({item}) => {
+type CartItemProps = {
+  item: CartOneItem;
+}
+
+const CartItem: React.FC<CartItemProps> = ({item}) => {
   const dispatch = useDispatch();
   const {imageUrl, name, fishBase, price, count, extras, id} = item;
   

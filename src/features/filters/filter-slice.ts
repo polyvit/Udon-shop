@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { CardOneItem } from "../cards/types";
+import { FilterSliceState } from "./types";
 
-const initialState = {
+
+const initialState: FilterSliceState = {
   categoryId: 0,
   searchValue: "",
   sort: {
@@ -31,7 +34,7 @@ const filterSlice = createSlice({
 
 // Selectors
 
-export const selectItemsBySearch = (items, searchValue) => {
+export const selectItemsBySearch = (items: CardOneItem[], searchValue: string) => {
   if (!searchValue) return items;
   return items.filter((item) =>
     item.name.toLowerCase().includes(searchValue.toLowerCase())

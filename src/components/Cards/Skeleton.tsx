@@ -1,7 +1,11 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const Skeleton = (props) => (
+type SkeletonProps = {
+  key: number;
+}
+
+const Skeleton: React.FC<SkeletonProps> = ({key}) => (
   <ContentLoader 
     speed={2}
     width={279}
@@ -9,7 +13,7 @@ const Skeleton = (props) => (
     viewBox="0 0 279 492"
     backgroundColor="#f3f3f3"
     foregroundColor="#ecebeb"
-    {...props}
+    key={key}
   >
     <rect x="22" y="33" rx="0" ry="0" width="251" height="207" /> 
     <rect x="22" y="276" rx="0" ry="0" width="247" height="35" /> 

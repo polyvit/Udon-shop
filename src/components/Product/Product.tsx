@@ -4,19 +4,29 @@ import {Link} from 'react-router-dom';
 
 import styles from './Product.module.css';
 import { useDispatch } from 'react-redux';
-import { addItem } from '../../features/cart-slice';
+import { addItem } from '../../features/cart/cart-slice';
 import useAuth from '../User/use-auth';
+import { CardOneItem } from '../../features/cards/types';
 
-const optionsList = [
+type OptionItem = {
+  name: string;
+  price: number;
+  isChosen: boolean;
+}
+type ProductProps = {
+  product: CardOneItem | null;
+}
+
+const optionsList: OptionItem[] = [
   {name: "Древесные грибы 50 г", price: 110, isChosen: false},
   {name: "Капуста кимчи 30 г", price: 110, isChosen: false},
   {name: "Нори 3 г", price: 70, isChosen: false},
   {name: "Адзитама 50 г", price: 50, isChosen: false},
 ]
 
-const Product = ({product}) => {
+const Product: React.FC<ProductProps> = ({product}) => {
   
-  let {name, imageUrl, price} = product;
+  let {name = '', imageUrl = '', price = 0} = product || {};
   const dispatch = useDispatch();
   const [options, setOptions] = useState(optionsList);
   const [amount, setAmount] = useState(1);
@@ -31,7 +41,7 @@ const Product = ({product}) => {
     return options.filter(option => option.isChosen).reduce((acc, option) => acc + option.price, 0);
   }
 
-  const toggleOption = (i) => {
+  const toggleOption = (i: number) => {
     const newOptions = structuredClone(options);
     newOptions[i].isChosen = !newOptions[i].isChosen;
     setOptions(newOptions);
@@ -40,12 +50,10 @@ const Product = ({product}) => {
     dispatch(addItem({
       ...product,
       price: price,
-      fishBase: search.slice(-1) == 0 ? false : true,
+      fishBase: search.slice(-1) === '0' ? false : true,
       extras: calcExtraSum(),
       count: amount,
-    }))
-    
-    
+    }))  
   }
 
   return (

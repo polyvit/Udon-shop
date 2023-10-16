@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import styles from './User.module.css';
 import { useDispatch } from 'react-redux';
-import { setUser, toggleFormType, toggleForm } from '../../features/user-slice';
+import { setUser, toggleFormType, toggleForm } from '../../features/authorization/user-slice';
 import { validateInput } from '../../utils/common';
 
 const SignUpForm = () => {
@@ -21,23 +21,25 @@ const SignUpForm = () => {
   })
 
 
-  const handleInputChange = ({target: {value, name}}) => {
-    setValues({...values, [name]: value})
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValues({...values, [event.target.name]: event.target.value})
   }
 
-  const handleSignup = (e) => {
+  const handleSignup = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const auth = getAuth();
     const res = createUserWithEmailAndPassword(auth, values.email, values.password);
       res.then((userCredential) => {
         const user = userCredential.user;
-        updateProfile(auth.currentUser, {
+        if (auth.currentUser) {
+          updateProfile(auth.currentUser, {
           displayName: `${values.name.toUpperCase()[0]}${values.surname.toUpperCase()[0]}`
         });
+        }
         dispatch(setUser({
           email: user.email,
           id: user.uid,
-          token: user.accessToken,
+          token: user.refreshToken,
           password: values.password,
           displayName: `${values.name.toUpperCase()[0]}${values.surname.toUpperCase()[0]}`,
         }));
@@ -48,8 +50,8 @@ const SignUpForm = () => {
     });
   }
 
-  const handleBlur = ({value, name}) => {
-    setValidValues({...validValues, [name]: validateInput(value, name)})
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    setValidValues({...validValues, [event.target.name]: validateInput(event.target.value, event.target.name)})
   }
 
   return (
@@ -63,7 +65,7 @@ const SignUpForm = () => {
                     required
                     className={`${styles.input} ${validValues.name ? '' : `${styles.invalid}`}`}
                     onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e.target)}
+                    onBlur={(e) => handleBlur(e)}
                   />
                 </div>
                 <div className={styles.group}>
@@ -75,7 +77,7 @@ const SignUpForm = () => {
                     required
                     className={`${styles.input} ${validValues.surname ? '' : `${styles.invalid}`}`}
                     onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e.target)}
+                    onBlur={(e) => handleBlur(e)}
                   />
                 </div>
                 <div className={styles.group}>
@@ -87,7 +89,7 @@ const SignUpForm = () => {
                     required
                     className={`${styles.input} ${validValues.email ? '' : `${styles.invalid}`}`}
                     onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e.target)}
+                    onBlur={(e) => handleBlur(e)}
                   />
                 </div>
                 <div className={styles.group}>
@@ -99,7 +101,7 @@ const SignUpForm = () => {
                     required
                     className={`${styles.input} ${validValues.password ? '' : `${styles.invalid}`}`}
                     onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e.target)}
+                    onBlur={(e) => handleBlur(e)}
                   />
                 </div>
                 <div className={styles.link} onClick={() => dispatch(toggleFormType('login'))}>У меня уже есть аккаунт</div>

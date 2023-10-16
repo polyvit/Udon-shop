@@ -2,9 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Filters.module.css';
-import { setSort } from '../../features/filter-slice';
+import { setSort } from '../../features/filters/filter-slice';
+import { RootState } from '../../features/store';
 
-const sortList = [
+type SortItem = {
+  name: string;
+  sortProperty: string;
+}
+
+const sortList: SortItem[] = [
   {name: 'популярности (убыв)', sortProperty: '-rating'}, 
   {name: 'популярности (возр)', sortProperty: 'rating'}, 
   {name: 'цене (возр)', sortProperty: 'price'}, 
@@ -16,9 +22,9 @@ const sortList = [
 const Sort = () => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const {sort} = useSelector(state => state.filter);
+  const {sort} = useSelector((state: RootState) => state.filter);
 
-  const handleClick = (obj) => {
+  const handleClick = (obj: SortItem) => {
     dispatch(setSort(obj));
     setIsOpen(false);
   }

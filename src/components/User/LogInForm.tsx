@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from './User.module.css';
 import { useDispatch } from 'react-redux';
-import { toggleFormType, toggleForm, setUser } from '../../features/user-slice';
+import { toggleFormType, toggleForm, setUser } from '../../features/authorization/user-slice';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { validateInput } from '../../utils/common';
 
@@ -16,30 +16,30 @@ const LogInForm = () => {
     password: true,
   })
 
-  const handleInputChange = ({target: {value, name}}) => {
-    setValues({...values, [name]: value})
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+    setValidValues({...validValues, [event.target.name]: validateInput(event.target.value, event.target.name)})
   }
-  const handleLogin = (e) => {
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValues({...values, [event.target.name]: event.target.value})
+  }
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const auth = getAuth();
     const res = signInWithEmailAndPassword(auth, values.email, values.password);
       res.then((userCredential) => {
         const user = userCredential.user;
-        const displayName = auth.currentUser.displayName;
+        const displayName = auth.currentUser?.displayName;
         dispatch(setUser({
           email: user.email,
           id: user.uid,
-          token: user.accessToken,
+          token: user.refreshToken,
           password: values.password,
           displayName: displayName,
         }));
         dispatch(toggleForm(false));
       })
       .catch(() => alert('Такого пользователя не существует'));
-  }
-
-  const handleBlur = ({value, name}) => {
-    setValidValues({...validValues, [name]: validateInput(value, name)})
   }
 
   return (
@@ -53,7 +53,7 @@ const LogInForm = () => {
                     required
                     onChange={handleInputChange}
                     className={`${styles.input} ${validValues.email ? '' : `${styles.invalid}`}`}
-                    onBlur={(e) => handleBlur(e.target)}
+                    onBlur={(e) => handleBlur(e)}
                   />
                 </div>
                 <div className={styles.group}>
@@ -65,7 +65,7 @@ const LogInForm = () => {
                     required
                     className={`${styles.input} ${validValues.password ? '' : `${styles.invalid}`}`}
                     onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e.target)}
+                    onBlur={(e) => handleBlur(e)}
                   />
                 </div>
                 <div className={styles.link} onClick={() => dispatch(toggleFormType('signup'))}>У меня нет аккаунта</div>

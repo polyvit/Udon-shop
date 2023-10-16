@@ -1,15 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {toggleForm} from '../../features/user-slice';
+import {toggleForm} from '../../features/authorization/user-slice';
 import styles from './User.module.css';
 import LogInForm from './LogInForm';
 import SignUpForm from './SignUpForm'; 
-
+import { RootState } from '../../features/store';
 
 const UserModalForm = () => {
   const dispatch = useDispatch();
-  const {showForm, formType} = useSelector(state => state.user);
-
+  const {showForm, formType} = useSelector((state: RootState) => state.user);
 
   return showForm ? (
     <>

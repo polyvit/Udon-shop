@@ -11,8 +11,11 @@ import "./firebase";
 
 let persistor = persistStore(store);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+const rootElem = document.getElementById("root");
+
+if (rootElem) {
+  const root = ReactDOM.createRoot(rootElem);
+  root.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter>
@@ -21,3 +24,6 @@ root.render(
     </PersistGate>
   </Provider>
 );
+}
+
+

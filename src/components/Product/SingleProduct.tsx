@@ -1,22 +1,12 @@
 import React from 'react';
-import {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {useParams} from 'react-router-dom';
 import Product from './Product';
 import NotFound from '../../pages/NotFound';
-import { loadItemById } from '../../features/cards-slice';
 import {RotatingLines} from  'react-loader-spinner';
+import useProduct from './use-product';
 
 
 const SingleProduct = () => {
-  const dispatch = useDispatch();
-  const {id} = useParams();
-  const {currentDish} = useSelector(state => state.cards);
-  const {status} = useSelector(state => state.cards)
-
-  useEffect(() => {
-    dispatch(loadItemById(id))
-  }, [])
+  const {currentDish, status} = useProduct();
 
   return (
     <>
