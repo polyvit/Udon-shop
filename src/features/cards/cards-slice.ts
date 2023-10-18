@@ -7,14 +7,14 @@ import axios from "axios";
 
 export const loadItems = createAsyncThunk<CardOneItem[], Params, {extra: {client: typeof axios}}>(
   "cards/loadItems",
-  async (params, { extra: { client } }: any) => {
+  async (params, { extra: { client } }) => {
     const { data } = await client.get(`${BASE_URL}${buildUrl(params)}`);
     return data;
   }
 );
 export const loadItemById = createAsyncThunk<CardOneItem, string, {extra: {client: typeof axios}}>(
   "cards/loadItemById",
-  async (id: string, { extra: { client } }: any) => {
+  async (id: string, { extra: { client } }) => {
     const { data } = await client.get(`${BASE_URL}/${id}`);
     return data;
   }
