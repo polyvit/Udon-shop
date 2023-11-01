@@ -8,9 +8,8 @@ export const buildUrl = (params) => {
 };
 
 export const calcTotalPrice = (array) => {
-  return array.reduce(
-    (acc, obj) => obj.price * obj.count + obj.extras + acc,
-    0
+  return Math.round(
+    array.reduce((acc, obj) => obj.price * obj.count + obj.extras + acc, 0)
   );
 };
 
