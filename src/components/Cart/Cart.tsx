@@ -27,7 +27,7 @@ const Cart = () => {
 
   const handleClick = () => {
     dispatch(clearCart());
-    navigate('/');
+    navigate('/Udon-shop/');
     notify();
   }
 
@@ -50,7 +50,7 @@ const Cart = () => {
                 <span>Сумма заказа: <b>{totalPrice}₽</b></span>
               </div>
               <div className={styles.buttons}>
-                <Link to={"/"} className="button-link" >Вернуться в магазин</Link>
+                <Link to={"/Udon-shop/"} className="button-link" >Вернуться в магазин</Link>
                 <button className="button" onClick={handleClick}>Оплатить</button>
               </div>
             </div>

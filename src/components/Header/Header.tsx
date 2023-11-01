@@ -42,7 +42,7 @@ const Header = () => {
             )}
 
             <div>
-              <Link to={"/cart"} className={styles["cart-button"]}>
+              <Link to={"/Udon-shop/cart"} className={styles["cart-button"]}>
                 <span>{totalPrice}р</span>
                 <div className={styles.middle}></div>
                 <span>{sumItems(items)}</span>

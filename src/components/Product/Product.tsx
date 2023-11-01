@@ -75,7 +75,7 @@ const Product: React.FC<ProductProps> = ({product}) => {
                   <option>4</option>
                   <option>5</option>
                 </select>
-                <Link to={"/cart"} className="button" onClick={addToCartHandle}>В корзину</Link>
+                <Link to={"/Udon-shop/cart"} className="button" onClick={addToCartHandle}>В корзину</Link>
               </div>
               <div className={styles.line}></div>
               <p className="base-title">Сделать еще вкуснее</p>

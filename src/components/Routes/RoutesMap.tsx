@@ -10,7 +10,7 @@ import Profile from '../../pages/Profile';
 const RoutesMap = () => {
   return (
     <Routes>
-      <Route index  element={<Home/>}/>
+      <Route path={ROUTES.HOME}  element={<Home/>}/>
       <Route path={ROUTES.DISH} element={<SingleProduct/>}/>
       <Route path={ROUTES.CART} element={<Cart/>}/>
       <Route path={ROUTES.PROFILE} element={<Profile/>}/>

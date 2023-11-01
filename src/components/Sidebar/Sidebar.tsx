@@ -10,7 +10,7 @@ import YOUTUBE from '../../assets/youtube.svg';
 const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
-        <Link to={'/'}>
+        <Link to={'/Udon-shop/'}>
           <img src={LOGO} alt="Logo" className={styles.logo}/>
         </Link>
         <div className={styles.icons}>

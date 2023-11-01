@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <>
       <h3 className='big-title'>Ничего не найдено</h3>
-      <Link to={"/"} className="button">Вернуться на главную</Link>
+      <Link to={"/Udon-shop/"} className="button">Вернуться на главную</Link>
     </>
   )
 }

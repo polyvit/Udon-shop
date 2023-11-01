@@ -7,7 +7,7 @@ const EmptyCart = () => {
     <>
       <h3 className='big-title'>Здесь пока пусто</h3>
       <p className={styles.empty}>Для того, чтобы сделать заказ, вернитесь на главную страницу.</p>
-      <Link to={"/"} className="button">Вернуться назад</Link>
+      <Link to={"/Udon-shop/"} className="button">Вернуться назад</Link>
     </>
   )
 }

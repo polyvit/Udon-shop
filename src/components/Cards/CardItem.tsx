@@ -37,7 +37,7 @@ const CardItem: React.FC<CardItemProps> = ({id, imageUrl, name, price}) => {
                   ) : (
                     <span className="price">{price}₽</span>
                   )}
-                  <Link to={`/dishes/${id}?baseType=${activeType}`} className="button">Заказать</Link>
+                  <Link to={`/Udon-shop/dishes/${id}?baseType=${activeType}`} className="button">Заказать</Link>
                 </div>
               </div>
             </div>
