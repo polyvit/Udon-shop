@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Udon-shop/static/css/main.87fbc5f5.css",
+    "main.js": "/Udon-shop/static/js/main.b884ae89.js",
+    "static/media/logo.svg": "/Udon-shop/static/media/logo.7de1d80ec98ec4a0f529cf94bada7135.svg",
+    "static/media/vk.svg": "/Udon-shop/static/media/vk.6bb56619dee2978258d38856f8b71213.svg",
+    "static/media/youtube.svg": "/Udon-shop/static/media/youtube.fd70a36180b284f0e05f6c346d6ccc2c.svg",
+    "index.html": "/Udon-shop/index.html",
+    "static/media/tg.svg": "/Udon-shop/static/media/tg.c99ee4f5a7887cb566393a069235ed56.svg",
+    "main.87fbc5f5.css.map": "/Udon-shop/static/css/main.87fbc5f5.css.map",
+    "main.b884ae89.js.map": "/Udon-shop/static/js/main.b884ae89.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.87fbc5f5.css",
+    "static/js/main.b884ae89.js"
+  ]
+}
