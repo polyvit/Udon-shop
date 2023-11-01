@@ -4,7 +4,7 @@
 
 _Completed in Oct, 2023_
 
-[See demo]()
+[See demo](https://polyvit.github.io/Udon-shop/)
 
 Многостраничный онлайн магазин ресторана удонов. Верстка выполнена по [макету](https://www.figma.com/file/zo9e7J9tdi6C1MUXR0x9uf/%D0%9C%D0%B0%D0%BA%D0%B5%D1%82-%D1%81%D0%B0%D0%B9%D1%82%D0%B0-%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D0%B0?type=design&mode=design&t=EJwTcq9wC9UbyOJA-1), имеется мобильная версия. Приложение использует mock данные, подготовленные собственноручно и размещенные в сервисе mockapi.io.
 
