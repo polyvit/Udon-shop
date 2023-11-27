@@ -8,6 +8,7 @@ import NotFound from '../../pages/NotFound';
 import Profile from '../../pages/Profile';
 
 const RoutesMap = () => {
+
   return (
     <Routes>
       <Route path={ROUTES.HOME}  element={<Home/>}/>
