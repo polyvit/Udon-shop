@@ -1,23 +1,19 @@
-import React, { useEffect } from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import { useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { sumItems } from '../../utils/common';
 
 import styles from './Cart.module.css';
 import CartItem from './CartItem';
 import EmptyCart from './EmptyCart';
-import {clearCart, updateCart} from '../../features/cart/cart-slice';
+import {clearCart, updateCart, toggleForm} from '../../features/cart/cart-slice';
 import useAuth from '../User/use-auth';
-import { toast } from "react-toastify";
 import { RootState } from '../../features/store';
 
 const Cart = () => {
   const {items, totalPrice} = useSelector((state: RootState) => state.cart);
   const {isAuth} = useAuth();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const notify = () =>
-    toast("Ваши данные успешно отправлены");
 
   useEffect(() => {
     if (isAuth) {
@@ -26,9 +22,7 @@ const Cart = () => {
   }, [isAuth])
 
   const handleClick = () => {
-    dispatch(clearCart());
-    navigate('/Udon-shop/');
-    notify();
+    dispatch(toggleForm())
   }
 
   return (

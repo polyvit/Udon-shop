@@ -40,3 +40,19 @@
   line-height: 18px;
   text-align: center;
 }
+
+.form {
+  margin-top: 24px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  row-gap: 16px;
+  padding: 10px 30px;
+}
+
+.link {
+  font-size: 13px;
+  color: #b6b6b6;
+  cursor: pointer;
+  text-align: center;
+}

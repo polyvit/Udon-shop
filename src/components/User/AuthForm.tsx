@@ -1,6 +1,6 @@
 import React, {useState, Fragment} from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import styles from './User.module.css';
+import styles from '../../UI/Form/Form.module.css'
 import { useDispatch } from 'react-redux';
 import { setUser, toggleFormType, toggleForm } from '../../features/authorization/user-slice';
 import { validateInput } from '../../utils/common';

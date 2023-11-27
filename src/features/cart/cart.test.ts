@@ -4,6 +4,7 @@ import {addItem, minusItem} from './cart-slice';
 const initialState = {
   items: [], 
   totalPrice: 0,
+  showForm: false,
 }
 
 const addedItem = {
@@ -32,7 +33,8 @@ const cartWithItems = {
         count: 1
       }
   ],
-  totalPrice: 440
+  totalPrice: 440,
+  showForm: false,
 }
 
 describe('cartSlice', () => {

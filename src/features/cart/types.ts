@@ -13,4 +13,11 @@ export type CartOneItem = {
 export interface CartSliceState {
   items: CartOneItem[];
   totalPrice: number;
+  showForm: boolean;
+}
+
+export type Params = {
+  email: string;
+  items: CartOneItem[];
+  totalPrice: number;
 }

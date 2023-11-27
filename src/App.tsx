@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import UserModalForm from "./components/User/UserModalForm";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import OrderForm from "./components/Cart/OrderForm";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <div className="container">
       <Sidebar />
       <UserModalForm />
+      <OrderForm/>
       <div className="main">
         <div className="main-container">
           <Header />

@@ -1,12 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { calcTotalPrice } from "../../utils/common";
 import { CartSliceState } from "./types";
-
+import { Params } from "./types";
 
 const initialState: CartSliceState = {
   items: [],
   totalPrice: 0,
+  showForm: false,
 };
+
+export const setOrder = createAsyncThunk<void, Params>(
+  "cart/sendOrder", 
+  async (body) => {
+    await fetch(
+      "https://food-shop-32824-default-rtdb.firebaseio.com/orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify(body)
+      }
+    );
+  }
+)
 
 const cartSlice = createSlice({
   name: "cart",
@@ -46,9 +60,12 @@ const cartSlice = createSlice({
       });
       state.totalPrice = calcTotalPrice(state.items);
     },
+    toggleForm(state) {
+      state.showForm = !state.showForm;
+    }
   },
 });
 
-export const { addItem, minusItem, removeItem, clearCart, updateCart } =
+export const { addItem, minusItem, removeItem, clearCart, updateCart, toggleForm } =
   cartSlice.actions;
 export default cartSlice.reducer;
