@@ -7,7 +7,13 @@ import { validateInput } from '../../utils/common';
 import InputField from '../../UI/InputField';
 import useForm from './use-form';
 
-const AuthForm = ({type, text, buttonProps}) => {
+type AuthFormProps = {
+  type: 'login' | 'signup';
+  text: string;
+  buttonText: string;
+}
+
+const AuthForm: React.FC<AuthFormProps> = ({type, text, buttonText}) => {
   const dispatch = useDispatch();
   const submitFunc = useForm(type);
   
@@ -20,23 +26,23 @@ const AuthForm = ({type, text, buttonProps}) => {
     return type === 'signup' ? {...initial, name: true, surname: true} : initial;
   }) 
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.stopPropagation();
     setValues({...values, [event.target.name]: event.target.value})
   }
 
-  const handleBlur = (event) => {
+  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     event.stopPropagation();
     setValidValues({...validValues, [event.target.name]: validateInput(event.target.value, event.target.name)})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation()
     submitFunc(values);
   }
 
-  const changeForm = (e) => {
+  const changeForm = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation()
     if (type === 'login') {
       dispatch(toggleFormType('signup'))
@@ -83,8 +89,8 @@ const AuthForm = ({type, text, buttonProps}) => {
             validValues={validValues}
             onBlur={handleBlur}
           />
-            <div className={styles.link} onClick={changeForm}>{text}</div>
-            <button type="submit" className="button">Зарегистрироваться</button>
+          <div className={styles.link} onClick={changeForm}>{text}</div>
+          <button type="submit" className="button">{buttonText}</button>
       </form>
   )
 }

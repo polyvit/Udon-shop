@@ -20,8 +20,8 @@ const UserModalForm = () => {
       <Form clickHandler={clickHandler}>
         {/* {formType === 'login' ? <LogInForm /> : <SignUpForm />} */}
         {formType === 'login' 
-          ? <AuthForm type="login" text="У меня нет аккаунта" buttonProps={{text: "Войти"}}/>
-          : <AuthForm type="signup" text="У меня уже есть аккаунт" buttonProps={{text: "Зарегистрироваться"}}/>
+          ? <AuthForm type="login" text="У меня нет аккаунта" buttonText="Войти"/>
+          : <AuthForm type="signup" text="У меня уже есть аккаунт" buttonText="Зарегистрироваться"/>
         }
       </Form>
   ) : null
