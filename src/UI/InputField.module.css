@@ -1,0 +1,16 @@
+.group {
+  text-align: center;
+}
+
+.input {
+  background: #b6b6b6;
+  border: 0;
+  border-radius: 8px;
+  color: black;
+  padding: 12px 24px;
+  width: 100%;
+}
+
+.input.invalid {
+  border-bottom: 3px solid red;
+}

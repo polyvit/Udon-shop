@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { toggleFormType, toggleForm, setUser } from '../../features/authorization/user-slice';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { validateInput } from '../../utils/common';
+import InputField from '../../UI/InputField';
+import Form from '../../UI/Form/Form';
 
 const LogInForm = () => {
   const dispatch = useDispatch();
@@ -44,32 +46,24 @@ const LogInForm = () => {
 
   return (
       <form className={styles.form} onSubmit={handleLogin}>
-                <div className={styles.group}>
-                  <input
-                    type="email"
-                    placeholder="Введите email"
-                    name="email"
-                    autoComplete="off"
-                    required
-                    onChange={handleInputChange}
-                    className={`${styles.input} ${validValues.email ? '' : `${styles.invalid}`}`}
-                    onBlur={(e) => handleBlur(e)}
-                  />
-                </div>
-                <div className={styles.group}>
-                  <input
-                    type="password"
-                    placeholder="Введите пароль"
-                    name="password"
-                    autoComplete="off"
-                    required
-                    className={`${styles.input} ${validValues.password ? '' : `${styles.invalid}`}`}
-                    onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e)}
-                  />
-                </div>
-                <div className={styles.link} onClick={() => dispatch(toggleFormType('signup'))}>У меня нет аккаунта</div>
-                <button className="button" type="submit">Войти</button>
+          <InputField
+            type="email"
+            label="email"
+            name="email"
+            onChange={handleInputChange}
+            validValues={validValues}
+            onBlur={handleBlur}
+          />
+          <InputField
+            type="password"
+            label="пароль"
+            name="password"
+            onChange={handleInputChange}
+            validValues={validValues}
+            onBlur={handleBlur}
+          />
+          <div className={styles.link} onClick={() => dispatch(toggleFormType('signup'))}>У меня нет аккаунта</div>
+          <button className="button" type="submit">Войти</button>
       </form>
 
   )

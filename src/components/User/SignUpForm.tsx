@@ -4,6 +4,7 @@ import styles from './User.module.css';
 import { useDispatch } from 'react-redux';
 import { setUser, toggleFormType, toggleForm } from '../../features/authorization/user-slice';
 import { validateInput } from '../../utils/common';
+import InputField from '../../UI/InputField';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -55,57 +56,41 @@ const SignUpForm = () => {
   }
 
   return (
-      <form className={styles.form} onSubmit={handleSignup}>
-          <div className={styles.group}>
-                  <input
-                    type="text"
-                    placeholder="Введите имя"
-                    name="name"
-                    autoComplete="off"
-                    required
-                    className={`${styles.input} ${validValues.name ? '' : `${styles.invalid}`}`}
-                    onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e)}
-                  />
-                </div>
-                <div className={styles.group}>
-                  <input
-                    type="text"
-                    placeholder="Введите фамилию"
-                    name="surname"
-                    autoComplete="off"
-                    required
-                    className={`${styles.input} ${validValues.surname ? '' : `${styles.invalid}`}`}
-                    onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e)}
-                  />
-                </div>
-                <div className={styles.group}>
-                  <input
-                    type="email"
-                    placeholder="Введите email"
-                    name="email"
-                    autoComplete="off"
-                    required
-                    className={`${styles.input} ${validValues.email ? '' : `${styles.invalid}`}`}
-                    onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e)}
-                  />
-                </div>
-                <div className={styles.group}>
-                  <input
-                    type="password"
-                    placeholder="Введите пароль"
-                    name="password"
-                    autoComplete="off"
-                    required
-                    className={`${styles.input} ${validValues.password ? '' : `${styles.invalid}`}`}
-                    onChange={handleInputChange}
-                    onBlur={(e) => handleBlur(e)}
-                  />
-                </div>
-                <div className={styles.link} onClick={() => dispatch(toggleFormType('login'))}>У меня уже есть аккаунт</div>
-                <button type="submit" className="button">Зарегистрироваться</button>
+    <form className={styles.form} onSubmit={handleSignup}>
+            <InputField
+              type="text"
+              label="имя"
+              name="name"
+              onChange={handleInputChange}
+              validValues={validValues}
+              onBlur={handleBlur}
+            />
+            <InputField
+              type="password"
+              label="фамилию"
+              name="surname"
+              onChange={handleInputChange}
+              validValues={validValues}
+              onBlur={handleBlur}
+            />
+          <InputField
+            type="email"
+            label="email"
+            name="email"
+            onChange={handleInputChange}
+            validValues={validValues}
+            onBlur={handleBlur}
+          />
+          <InputField
+            type="password"
+            label="пароль"
+            name="password"
+            onChange={handleInputChange}
+            validValues={validValues}
+            onBlur={handleBlur}
+          />
+            <div className={styles.link} onClick={() => dispatch(toggleFormType('login'))}>У меня уже есть аккаунт</div>
+            <button type="submit" className="button">Зарегистрироваться</button>
       </form>
 
   )
