@@ -57,7 +57,7 @@ const CartItem: React.FC<CartItemProps> = ({item}) => {
                     </svg>
                   </div>
                 </div>
-                <span className="price">{price * count + extras}₽</span>
+                <span className="price">{Math.round(price * count + extras)}₽</span>
                 <div className={`${styles.circle} ${styles["circle-remove"]}`}>
                   <svg
                     version="1.1"
