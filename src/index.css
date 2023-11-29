@@ -41,6 +41,9 @@ li {
   margin: 0;
   list-style: none;
 }
+.mb-10 {
+  margin-bottom: 10px;
+}
 .mb-25 {
   margin-bottom: 25px;
 }
@@ -55,7 +58,6 @@ li {
   font-size: 20px;
   font-weight: bold;
 }
-
 .button {
   padding: 10px 20px;
   background-color: var(--accent-color);
@@ -70,7 +72,12 @@ li {
   color: var(--gray-color);
   cursor: pointer;
 }
-
+.link {
+  color: var(--gray-color);
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
 .big-title {
   color: #333;
   font-size: 32px;
@@ -133,4 +140,22 @@ li {
       font-weight: 700;
       line-height: 140%;
     }
+}
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+}
+.profile-main {
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  gap: 20px;
+}
+@media (max-width: 420px) {
+  .profile-main {
+    grid-template-columns: 1fr;
+  }
+  .profile-main li {
+    margin-bottom: 0;
+    margin: 0 auto 10px;
+  }
 }

@@ -4,7 +4,7 @@ import styles from './User.module.css';
 import { useDispatch } from 'react-redux';
 import { setUser, toggleFormType, toggleForm } from '../../features/authorization/user-slice';
 import { validateInput } from '../../utils/common';
-import InputField from '../../UI/InputField';
+import InputField from '../../UI/Input/InputField';
 
 const SignUpForm = () => {
   const dispatch = useDispatch();

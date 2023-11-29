@@ -3,4 +3,5 @@ export const ROUTES = {
   CART: "/Udon-shop/cart",
   DISH: "/Udon-shop/dishes/:id",
   PROFILE: "/Udon-shop/profile",
+  ORDERS: "/Udon-shop/profile/orders",
 };

@@ -2,7 +2,7 @@ import {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Form from '../../UI/Form/Form';
-import InputField from '../../UI/InputField';
+import InputField from '../../UI/Input/InputField';
 import styles from '../../UI/Form/Form.module.css';
 import { toggleForm, clearCart, setOrder } from '../../features/cart/cart-slice';
 import { validateInput } from '../../utils/common';

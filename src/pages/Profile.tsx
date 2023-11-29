@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, Route, Routes } from 'react-router-dom';
 import { ROUTES } from '../utils/routes';
 import useAuth from '../components/User/use-auth';
 import { useNavigate } from 'react-router-dom';
+import Nav from '../components/Nav/Nav';
 
 const Profile = () => {
-  const {isAuth} = useAuth();
+  const {isAuth, email, displayName} = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,9 +17,16 @@ const Profile = () => {
 
   return isAuth && (
     <>
-      <h3 className='big-title mb-25'>Раздел в разработке</h3>
-      <p className='mb-25'>В будущем здесь можно будет посмотреть историю заказов и поменять данные профиля</p>
-      <Link to={ROUTES.HOME} className="button">Вернуться на главную</Link>
+      <h3 className='big-title'>Привет, {displayName}</h3>
+      <div className='profile-info'>
+        <span className='base-title'>{email}</span>
+        <button className="link">Выйти из аккаунта</button>
+      </div>
+      <div className='profile-main'>
+        <Nav/>
+        <Outlet/>
+      </div>
+      {/* <Link to={ROUTES.HOME} className="button">Вернуться на главную</Link> */}
     </>
   )
 }

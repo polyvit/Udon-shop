@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { toggleFormType, toggleForm, setUser } from '../../features/authorization/user-slice';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { validateInput } from '../../utils/common';
-import InputField from '../../UI/InputField';
+import InputField from '../../UI/Input/InputField';
 import Form from '../../UI/Form/Form';
 
 const LogInForm = () => {
