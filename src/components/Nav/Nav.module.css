@@ -1,0 +1,13 @@
+.menu {
+  background-color: var(--menu-back-color);
+  height: max-content;
+}
+.menu li {
+  text-align: center;
+  padding: 20px 10px;
+}
+.menu li:hover,
+.menu li.active {
+  color: var(--white-color);
+  background-color: var(--accent-color);
+}

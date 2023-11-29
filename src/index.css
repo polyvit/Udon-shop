@@ -3,6 +3,7 @@
   --gray-color: #5B5B5B;
   --dark-color: #333333;
   --white-color: white;
+  --menu-back-color: #e4e4e4;
 }
 
 
@@ -148,7 +149,7 @@ li {
 .profile-main {
   display: grid;
   grid-template-columns: 20% 1fr;
-  gap: 20px;
+  gap: 30px;
 }
 @media (max-width: 420px) {
   .profile-main {
