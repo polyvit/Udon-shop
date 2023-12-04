@@ -7,6 +7,7 @@ import cardsReducer from "./cards/cards-slice";
 import filterReducer from "./filters/filter-slice";
 import cartReducer from "./cart/cart-slice";
 import userReducer from "./authorization/user-slice";
+import ordersReducer from './orders/orders-slice'
 import { useDispatch } from "react-redux";
 
 const reducers = combineReducers({
@@ -14,6 +15,7 @@ const reducers = combineReducers({
   filter: filterReducer,
   cart: cartReducer,
   user: userReducer,
+  orders: ordersReducer
 });
 
 const persistConfig = {

@@ -4,10 +4,17 @@
 }
 .menu li {
   text-align: center;
+  cursor: pointer;
+}
+.menu li a {
+  display: inline-block;
   padding: 20px 10px;
 }
 .menu li:hover,
 .menu li.active {
-  color: var(--white-color);
   background-color: var(--accent-color);
+}
+.menu li:hover a,
+.menu li.active a {
+  color: var(--white-color);
 }

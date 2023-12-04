@@ -1,16 +1,17 @@
 import React from "react";
 import styles from "./Orders.module.css";
+import { transformDate, flatItemsArray, sumItems } from "../../../utils/common";
 
-const Order = () => {
+const Order = ({ date, totalPrice, items }) => {
   return (
     <div className={styles.order}>
-      <div>
-        <h5>2023-05-07, 13:05</h5>
-        <p>Состав: Удон с курицей, Онтама с яйцом</p>
+      <div className={styles.left}>
+        <h5>{transformDate(date)}</h5>
+        <p>Состав: {flatItemsArray(items)}</p>
       </div>
       <div className={styles.right}>
-        <span>490 руб</span>
-        <span>4 шт.</span>
+        <span>{totalPrice} руб</span>
+        <span>{sumItems(items)} шт.</span>
       </div>
     </div>
   );

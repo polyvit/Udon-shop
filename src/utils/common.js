@@ -30,3 +30,20 @@ export const validateInput = (value, name) => {
     }
   }
 };
+
+export const transformDate = (date) => {
+  let formatter = new Intl.DateTimeFormat("ru", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  });
+  return formatter.format(new Date(date));
+};
+
+export const flatItemsArray = (array) => {
+  let res = [];
+  array.forEach((item) => res.push(item.name));
+  return res.join(", ");
+};
