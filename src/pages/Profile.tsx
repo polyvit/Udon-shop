@@ -5,6 +5,7 @@ import useAuth from "../components/User/use-auth";
 import { useNavigate } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
 import TRASH from "../assets/trash.svg";
+import EXIT from "../assets/exit.svg";
 import { getAuth, signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/authorization/user-slice";
@@ -47,13 +48,19 @@ const Profile = () => {
         <div className="profile-info">
           <span className="base-title">{email}</span>
           <button className="link" onClick={logOut}>
-            <img src={TRASH} alt="icon" className="link_icon" />
+            <img src={EXIT} alt="icon" className="link_icon" />
             Выйти из аккаунта
           </button>
         </div>
         <div className="profile-main">
           <Nav />
           <Outlet />
+        </div>
+        <div className="profile-footer">
+          <button className="link" onClick={logOut}>
+            <img src={TRASH} alt="icon" className="link_icon" />
+            Удалить аккаунт
+          </button>
         </div>
         {/* <Link to={ROUTES.HOME} className="button">Вернуться на главную</Link> */}
       </>

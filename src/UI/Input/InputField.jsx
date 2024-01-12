@@ -1,21 +1,23 @@
-import React from 'react';
-import styles from './InputField.module.css';
+import React from "react";
+import styles from "./InputField.module.css";
 
-const InputField = ({type, label, name, onChange, validValues, onBlur}) => {
+const InputField = ({ type, label, name, onChange, validValues, onBlur }) => {
   return (
     <div className={styles.group}>
-      <input 
+      <input
         type={type}
         placeholder={`Введите ${label}`}
         name={name}
         autoComplete="off"
         required
         onChange={onChange}
-        className={`${styles.input} ${validValues.email ? '' : `${styles.invalid}`}`}
+        className={`${styles.input} ${
+          validValues[name] ? "" : `${styles.invalid}`
+        }`}
         onBlur={(e) => onBlur(e)}
       />
     </div>
-  )
-}
+  );
+};
 
-export default InputField
+export default InputField;

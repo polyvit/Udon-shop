@@ -72,6 +72,15 @@ const useForm = (type) => {
           });
       };
     }
+    case "edit": {
+      return (values) => {
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if (user !== null) {
+          console.log(user);
+        }
+      };
+    }
     default: {
       return () => {};
     }

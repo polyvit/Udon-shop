@@ -1,7 +1,8 @@
 import React from "react";
+import AuthForm from "../../User/AuthForm";
 
 const Person = () => {
-  return <div>Здесь будет форма для изменения данных</div>;
+  return <AuthForm type="edit" text="" buttonText="Отправить" />;
 };
 
 export default Person;

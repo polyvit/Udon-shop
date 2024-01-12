@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./Orders.module.css";
 import { transformDate, flatItemsArray, sumItems } from "../../../utils/common";
+import { OrderItem } from "../../../features/orders/types";
 
-const Order = ({ date, totalPrice, items }) => {
+const Order: React.FC<OrderItem> = ({ date, totalPrice, items }) => {
   return (
     <div className={styles.order}>
       <div className={styles.left}>
