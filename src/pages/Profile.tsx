@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { Link, Outlet, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import { ROUTES } from "../utils/routes";
 import useAuth from "../components/User/use-auth";
 import { useNavigate } from "react-router-dom";
 import Nav from "../components/Nav/Nav";
 import TRASH from "../assets/trash.svg";
 import EXIT from "../assets/exit.svg";
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut, deleteUser, User } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { setUser } from "../features/authorization/user-slice";
 
@@ -41,6 +41,30 @@ const Profile = () => {
       });
   };
 
+  const deleteAccount = () => {
+    let shouldDelete = window.confirm("Удаляем аккаунт?");
+    if (shouldDelete) {
+      const auth = getAuth();
+      const user = auth.currentUser as User;
+      deleteUser(user)
+        .then(() => {
+          dispatch(
+            setUser({
+              email: null,
+              id: null,
+              token: null,
+              password: null,
+              displayName: null,
+            })
+          );
+          navigate(ROUTES.HOME);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+
   return (
     isAuth && (
       <>
@@ -57,12 +81,11 @@ const Profile = () => {
           <Outlet />
         </div>
         <div className="profile-footer">
-          <button className="link" onClick={logOut}>
+          <button className="link" onClick={deleteAccount}>
             <img src={TRASH} alt="icon" className="link_icon" />
             Удалить аккаунт
           </button>
         </div>
-        {/* <Link to={ROUTES.HOME} className="button">Вернуться на главную</Link> */}
       </>
     )
   );

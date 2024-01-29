@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import styles from './Header.module.css';
-import { sumItems } from '../../utils/common';
+import { sumItems, convertDusplayName } from '../../utils/common';
 import { toggleForm } from '../../features/authorization/user-slice';
 import useAuth from '../User/use-auth';
 import { ROUTES } from '../../utils/routes';
@@ -20,7 +20,7 @@ const Header = () => {
               <>
                 <p><Link to={ROUTES.PROFILE}>Личный кабинет</Link></p>
                 <div className={styles.avatar}>
-                  <span>{displayName}</span>
+                  <span>{convertDusplayName(displayName)}</span>
                 </div>
               </>
             ) : (

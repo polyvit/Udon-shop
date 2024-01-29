@@ -33,7 +33,10 @@ const useForm = (type) => {
             );
             dispatch(toggleForm(false));
           })
-          .catch(() => alert("Такого пользователя не существует"));
+          .catch(() => {
+            alert("Такого пользователя не существует");
+            dispatch(toggleForm(false));
+          });
       };
     }
     case "signup": {
@@ -49,9 +52,10 @@ const useForm = (type) => {
             const user = userCredential.user;
             if (auth.currentUser) {
               updateProfile(auth.currentUser, {
-                displayName: `${values.name.toUpperCase()[0]}${
-                  values.surname.toUpperCase()[0]
-                }`,
+                // displayName: `${values.name.toUpperCase()[0]}${
+                //   values.surname.toUpperCase()[0]
+                // }`,
+                displayName: `${values.name}_${values.surname}`,
               });
             }
             dispatch(
@@ -60,9 +64,10 @@ const useForm = (type) => {
                 id: user.uid,
                 token: user.refreshToken,
                 password: values.password,
-                displayName: `${values.name.toUpperCase()[0]}${
-                  values.surname.toUpperCase()[0]
-                }`,
+                // displayName: `${values.name.toUpperCase()[0]}${
+                //   values.surname.toUpperCase()[0]
+                // }`,
+                displayName: `${values.name}_${values.surname}`,
               })
             );
             dispatch(toggleForm(false));

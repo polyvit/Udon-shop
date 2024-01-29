@@ -47,3 +47,14 @@ export const flatItemsArray = (array) => {
   array.forEach((item) => res.push(item.name));
   return res.join(", ");
 };
+
+export const convertDusplayName = (name) => {
+  if (name) {
+    let array = name.split("_");
+    let string = "";
+    array.forEach((word) => {
+      string += Array.from(word)[0].toUpperCase();
+    });
+    return string;
+  }
+};
